@@ -4,7 +4,6 @@ python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 """
 import setuptools
-from dorna_gui import Gui
 
 with open("README.md", "r") as fh:
     readme = fh.read()
