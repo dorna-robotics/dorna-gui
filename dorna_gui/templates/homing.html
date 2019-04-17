@@ -1,0 +1,101 @@
+<div class="sidepanel" id="homing_panel">
+  <div class="bar_head">
+    <button class="btn_tab t_2 side_close"><i class="material-icons">close</i></button>
+    <span class="title">Homing</span>
+  </div>
+
+  <div class="content" style="border-bottom: 1px solid var(--border_color)">
+    <!--connect-->
+    <table id ="home_table" style="width: 100%">
+      <tbody>
+        {% for i in range(3) %}
+          <tr>
+            <td style="width: 34%">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input home_s" id="home_s_j{{i}}" name="j{{i}}" checked>
+                <label class="custom-control-label" for="home_s_j{{i}}">J<sub>{{ i }}</sub></label>
+              </div>
+            </td>
+            <td class="home_v_j{{i}}" style="width: 33%; text-align: center;" >Not homed</td>
+            <td style="width: 33%" ></td>
+          </tr>
+        {% endfor %}
+        <tr>
+          <td style="width: 34%">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input home_s" id="home_s_j3" name="j3" checked>
+              <label class="custom-control-label" for="home_s_j3">J<sub>3</sub>, J<sub>4</sub></label>
+            </div>
+          </td>
+          <td class="home_v_j3" style="width: 33%; text-align: center;" >Not homed</td>
+          <td style="width: 33%" ></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+              <button type="button" class="btn btn-primary home_b" style="display: block;
+margin: auto;">Home</button>
+            </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <!--connect-->
+
+  </div>
+  <div class="collapsible bar_head" style="height:28px">
+    <div class="col_t_1 t_0" style=";padding-top: 2px; padding-bottom: 2px; width: 24px">
+      <i class="material-icons t_1">arrow_right</i>
+      <i class="material-icons t_1" style="display:none">arrow_drop_down</i>
+    </div>
+    <div class="col_t_1" style=";padding-top: 7px; padding-bottom: 7px; width: 200px">
+      <span>Set joints / calibrate</span>
+    </div>
+  </div>
+
+
+  <div class="collapsible_content">
+        <div class="content">
+          <table style="width:100%">
+            <tbody>
+              <td colspan="3" style=" vertical-align: top;">
+                Before calibrate, make sure that all the joints are homed.<br> 
+                Important: save the configuration file, if you want the calibration comes into effect.
+              </td>              
+              <tr>
+                <td style="width: 34%"></td>
+                <td style="width: 33%; text-align: center;" vertical-align="middle">Current</td>
+                <td style="width: 33%;text-align: center;" vertical-align="middle">New</td>
+              </tr>
+              {% for i in range(5) %}
+                <tr>
+                  <td>J<sub>{{i}}</sub> - deg</td>
+                  <td class="j{{ i }}_t" style="text-align: center;" vertical-align="middle">
+                    0
+                  </td>
+                  <td style="text-align: center;" vertical-align="middle">
+                    <input  type="number" class="number_t_1 set_joint_{{i}}_v" step="0.001" style="width: 76px;">
+                  </td>
+                </tr>
+              {% endfor %}
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <button type="button" class="btn btn-primary set_joint_b" style="display: block;
+margin: auto;">Set joint</button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2"></td>
+                <td>
+                  <button type="button" class="btn btn-primary calibrate_b" style="display: block;
+margin: auto;">Calibrate</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  </div>
+</div>

@@ -1,0 +1,317 @@
+<div class="sidepanel" id="script_panel" style="resize: horizontal;  overflow: auto;min-width: 400px;     max-width: 100%;background-color: #ccc" >
+  <div class="bar_head" style="">
+    <button class="btn_tab t_2 side_close"><i class="material-icons">close</i></button>
+    <span class="title">Script</span>
+  </div>
+  <div class="bar_head" style="background-color: #ccc">
+    <table style="; border-collapse: collapse; display: inline-block; padding-left: 2px">
+      <tbody>
+        <tr>
+          <td>
+            <select class="select  select_t_1 script_mode_l" type="text" style="", name="">
+              <option value="json" selected>JSON</option>
+              <option value="python">Python 3+</option>
+            </select>
+          </td>
+          <td style="">
+            <button class="btn_tab t_2" id="script_open_b" title="Upload script">
+              <i class="material-icons">folder_open</i>
+            </button>
+            <!--<input type="file" id ="script_open" name="script_open"style="display: none">-->
+            <input type="file" id ="script_open" name="script_open"style="display: none" >
+          </td>
+          <td style="">
+            <button class="btn_tab t_2" id="script_download_b" title="Download script">
+              <i class="material-icons">save</i>
+            </button>
+          </td>
+          <td style="width: 99%"></td>
+          <td>
+            <select class="select  select_t_1 command_l" type="text" style="", name="command">
+              <option value="method_list" selected>Commands list</option>
+              <option value="move">move</option>
+              <option value="set_io">set_io</option>
+              <!--<option value="wait_for_input">wait_for_input</option>-->
+              <option value="sleep">sleep</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn_tab t_2" id="method_add_b" title="Add command">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="btn_tab t_2" id="method_refresh_b" title="Refresh command">
+              <i class="material-icons">refresh</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!--
+
+    <span class="title" style="">
+      <select class="select  select_t_1 command_l" type="text" style="", name="command">
+        <option value="method_list" selected>Method list</option>
+        <option value="move">move</option>
+        <option value="set_io">set_io</option>
+        <option value="wait_for_input">wait_for_input</option>
+        <option value="sleep">sleep</option>
+      </select>
+      <button type="button" class="btn btn_t_1" id="method_add_b" >
+        Add
+      </button>
+      <button type="button" class="btn btn_t_1" id="method_refresh_b">
+        Refresh
+      </button>
+    </span>
+    -->
+  </div>
+  <div class="method_help">
+    <!--move-->
+    <table class="move_c prm_r" style="width: 100%; border-collapse: collapse" >
+      <tbody>
+        <!--path-->
+        <tr class="t_green_dark">
+          <td style="width: 113px">
+            <div style="padding-left: var(--padding_l)">path</div>
+          </td>
+          <td style="text-align: left;" >
+            <select class="select  select_t_1 move_v move_path_prm" type="text" style="width: 163px;" name="path">
+              <option value="joint" selected>joint</option>
+              <option value="line">line</option>
+            </select>
+          </td>
+        </tr>
+        <!--movement-->
+        <tr class="t_green_light">
+          <td>
+            <div style="padding-left: var(--padding_l)">movement</div>
+          </td>
+          <td style="text-align: left;" >
+            <select class="select  select_t_1 move_v move_movement_prm" type="text" style="width: 163px;" name="movement">
+              <option value="0" selected>0 (absolute)</option>
+              <option value="1">1 (relative)</option>
+            </select>
+          </td>
+        </tr>
+        <!--speed-->
+        <tr class="t_green_dark">
+          <td>
+            <div style="padding-left: var(--padding_l)">
+              <input type="checkbox" class="custom-control-input move_speed_prm_c" id="move_speed_c">
+              <label class="custom-control-label" for="move_speed_c">speed</label>
+            </div>
+          </td>
+          <td style="text-align: left;" colspan="2">
+            <input type="number" class="number_t_1 move_v move_speed_prm" step="0.001" min="0.001" max="100000" value="1000" name="speed" style="width:159px;text-align: left;" >
+          </td>
+        </tr>
+        <!--jerk-->
+        <tr class="t_green_light">
+          <td>
+            <div style="padding-left: var(--padding_l)">
+              <input type="checkbox" class="custom-control-input move_jerk_prm_c" id="move_jerk_c">
+              <label class="custom-control-label" for="move_jerk_c">jerk</label>
+            </div>
+          </td>
+          <td style="text-align: left;" >
+            <input type="text" class="number_t_1 move_v move_jerk_prm" name="jerk" style="width:159px;text-align: left;">
+          </td>
+        </tr>
+        <!--joint-->
+        <tr class="t_green_dark">
+          <td>
+            <div style="padding-left: var(--padding_l)">
+              <input type="radio" name="position_t_c" id="position_joint_c" value="joint" class="move_joint_prm_c" checked>
+              <label for="position_joint_c">joint</label>
+            </div>
+          </td>
+          <td style="text-align: left;" >
+            <input type="text" class="number_t_1 move_v move_joint_prm" style="width:159px;text-align: left;">
+          </td>
+        </tr>
+        <!--xyz-->
+        <tr class="t_green_light">
+          <td>
+            <div style="padding-left: var(--padding_l)">
+              <input type="radio" name="position_t_c" id="position_xyz_c" value="xyz" class="move_xyz_prm_c">
+              <label for="position_xyz_c">xyz</label>
+            </div>
+          </td>
+          <td style="text-align: left;" >
+            <input type="text" class="number_t_1 move_v move_xyz_prm" style="width:159px;text-align: left;">
+          </td>
+        </tr>
+        <!--/move-->
+      </tbody>
+    </table>
+
+
+    <!--sleep-->
+    <table class="sleep_c prm_r" style="width: 100%; border-collapse: collapse">
+      <tbody>
+        <!--sleep-->
+        <tr class="t_green_dark">
+          <td style="width: 113px">
+            <div style="padding-left: var(--padding_l)">time (sec)</div>
+          </td>
+          <td style="text-align: left;" >
+            <input type="number" class="number_t_1 move_v sleep_prm" step="0.001" min="0.001" max="100000" value="1" name="sleep" style="width:159px;text-align: left;">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!--set_io-->
+    <table class="set_io_c prm_r" style="width: 100%; border-collapse: collapse">
+      <tbody>
+        <!--servo-->
+        <tr class="t_green_dark">
+          <td style="width: 113px">
+            <div style="padding-left: var(--padding_l)">
+              <input type="checkbox" class="custom-control-input set_io_servo_prm_c" id="servo_c">
+              <label class="custom-control-label" for="servo_c">servo</label>
+            </div>
+          </td>
+          <td style="text-align: left;" >
+            <input type="number" class="number_t_1 move_v set_io_servo_prm" step="0.01" min="0" max="1000" value="500" name="servo" style="width:159px;text-align: left;">
+          </td>
+        </tr>
+        <!--laser-->
+        <tr class="t_green_light">
+          <td>
+            <div style="padding-left: var(--padding_l)">
+              <input type="checkbox" class="custom-control-input set_io_laser_prm_c" id="laser_c">
+              <label class="custom-control-label" for="laser_c">laser</label>
+            </div>
+          </td>
+          <td style="text-align: left;" >
+            <select class="select  select_t_1 set_io_v set_io_laser_prm" type="text" style="width: 163px;">
+              <option value="0" selected>0 (off)</option>
+              <option value="1">1 (on)</option>
+            </select>
+          </td>
+        </tr>
+        <!--out-->
+        {% for i in range(1,5) %}
+          {% if i in  [1,3] %}
+            <tr class="t_green_dark">
+          {% else %}
+            <tr class="t_green_light">
+          {% endif %}
+            <td style="">
+              <div style="padding-left: var(--padding_l)">
+                <input type="checkbox" class="custom-control-input set_io_out{{i}}_prm_c" id="out{{i}}_c">
+                <label class="custom-control-label" for="out{{i}}_c">out{{i}}</label>
+              </div>
+            </td>
+            <td style="text-align: left;" >
+              <select class="select  select_t_1 set_io_v set_io_out{{i}}_prm" type="text" style="width: 163px;">
+                <option value="0" selected>0 (off)</option>
+                <option value="1">1 (on)</option>
+              </select>
+            </td>
+          </tr>
+        {% endfor %}
+        <!--output mode-->
+        {% for i in range(1,5) %}
+          {% if i in  [1,3] %}
+            <tr class="t_green_light">
+          {% else %}
+            <tr class="t_green_dark">
+          {% endif %}
+            <td>
+              <div style="padding-left: var(--padding_l)">
+                <input type="checkbox" class="custom-control-input set_io_do{{i}}mo_prm_c" id="do{{i}}mo_c">
+                <label class="custom-control-label" for="do{{i}}mo_c">out{{i}}mo</label>
+              </div>
+            </td>
+            <td style="text-align: left;" >
+              <select class="select  select_t_1 set_io_v set_io_do{{i}}mo_prm" type="text"style="width: 163px;">
+                <option value="0" selected>0 (active low)</option>
+                <option value="1">1 (active high)</option>
+              </select>
+            </td>
+          </tr>
+        {% endfor %}
+        <!--input mode-->
+        {% for i in range(1,5) %}
+          {% if i in  [1,3] %}
+            <tr class="t_green_dark">
+          {% else %}
+            <tr class="t_green_light">
+          {% endif %}
+            <td>
+              <div style="padding-left: var(--padding_l)">
+                <input type="checkbox" class="custom-control-input set_io_di{{i}}mo_prm_c" id="di{{i}}mo_c">
+                <label class="custom-control-label" for="di{{i}}mo_c">in{{i}}mo</label>
+              </div>
+            </td>
+            <td style="text-align: left;" >
+              <select class="select  select_t_1 set_io_v set_io_di{{i}}mo_prm" type="text" style="width: 163px;">
+                <option value="0" selected>0 (active low)</option>
+                <option value="1">1 (active high)</option>
+              </select>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="">
+    <!--script-->
+    <div class="ex2">
+        <textarea class="codemirror-textarea" id="inner_remaining"></textarea>
+    </div>
+    <!--/script-->
+  </div>
+
+  <div class="bar_foot" style=";width:auto;">
+    <!--
+    <button class="btn_tab t_2" id="script_kill">
+      <i class="material-icons">stop</i>
+    </button>
+    <button class="btn_tab t_2" id="script_pause">
+      <i class="material-icons">pause</i>
+    </button>
+    <button class="btn_tab t_2" id="script_play">
+      <i class="material-icons">play_arrow</i>
+    </button>
+    -->
+    <table style="; border-collapse: collapse; display: inline-block">
+      <tbody>
+        <tr>
+          <td style="">
+            <button class="btn_tab t_2" id="script_play" title="Play script">
+              <i class="material-icons">play_arrow</i>
+            </button>
+          </td>
+          <td style="">
+            <button class="btn_tab t_2" id="script_kill" title="Stop script">
+              <i class="material-icons">stop</i>
+            </button>
+          </td>
+          <td>
+            <div style="padding-left: var(--padding_l)">
+              <input type="checkbox" class="custom-control-input " id="script_repeat">
+              <label class="custom-control-label" for="script_repeat">Repeat</label>
+            </div>
+          </td>
+          <td class="bar_foot_text" style="padding-left: var(--padding_l)" >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--
+    <span class="bar_foot_text title">
+
+    </span>
+    -->
+  </div>
+
+</div>

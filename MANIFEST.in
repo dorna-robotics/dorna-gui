@@ -1,0 +1,10 @@
+include README.md
+include setup.py
+include LICENSE
+
+recursive-include dorna_gui/templates *	
+recursive-include dorna_gui/static *	
+
+
+include dorna_gui/*.yaml
+include dorna_gui/*.py

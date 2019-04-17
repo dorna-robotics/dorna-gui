@@ -1,0 +1,74 @@
+<table id="home_table" style="width: 100%">
+      <tbody>
+          <tr>
+            <td></td>
+            <td style="width: 24px"></td>
+            <td></td>
+            <td style="width: 24px">
+              <button class="btn_tab t_2 refresh_position" style="padding: 0px 0px; width: 24px; height: 24px" title="Refresh position"><i class="material-icons">navigation</i></button>               
+            </td>
+            <td style="width: 65px;padding-left: var(--margin_b)" >
+              <button type="button" class="btn btn_t_2 jog_go" name = "joint" >
+                Go
+              </button>
+            </td>
+          </tr>
+          <!--buttons-->
+          {% for i in range(5) %}
+          <tr>
+            <td style="width: 30px">
+              J<div class="index">
+                  <span class="small" style="vertical-align: sub">
+                    {{i}}
+                  </span>
+                  <span class="" style="vertical-align: super">
+                    &#7506
+                  </span>
+              </div>
+            </td>
+            <td>
+              <button type="button" class="jog_b button" name = "j{{ i }}_-1">
+                <!--<i class="fas fa-minus"></i>-->
+                <i class="material-icons">chevron_left</i>
+              </button>
+            </td>
+            <td>
+              {% if i in [7] %}
+                <input type="range" class="jog_r j{{ i }}_v slider" min="-200" max="200" name="j{{ i }}" style="margin: 11px 0px !important; z-index:10;">
+              {% else %}
+                <input type="range" class="jog_r j{{ i }}_v slider slider_2" min="-200" max="200" name="j{{ i }}" style="margin: 11px 0px !important; z-index:10;">
+              {% endif %}
+            </td>
+            <td>
+              <button type="button" class="jog_b button" name = "j{{ i }}_+1">
+                <i class="material-icons">chevron_right</i>
+              </button>
+            </td>
+            <td style="padding-left: var(--margin_b)">
+              <input  type="number" class="j{{ i }}_v joint_{{i}} number_t_1" step="0.001" >
+            </td>
+          </tr>
+          {% endfor %}
+          <!--buttons-->
+          <tr>
+            <td colspan="4">
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" id="jog_joint_step_c" value="option1" style="margin-left: 0px" name="joint">
+                <label class="custom-control-label" for="jog_joint_step_c">Discrete jog mode</label>
+              </div>
+            </td>
+            <!--
+            <td>
+              <input  type="number" class="number_t_1" id="jog_joint_step_v" step="0.001" min="0.001" max="10000" value="0.001" style="width: 40px">
+              <div class="" style="background-color: #a9a9a9;font-size: var(--font_size_s);margin-left: -3px; padding:0px;display:inline-table; height: 24px; width: 20px; text-align: center; lin-height: 24px">
+                 <div style="padding: 3px 0px">deg</div>
+              </div>
+            </td>
+            -->
+            <td style="padding-left: var(--margin_b)">
+              <input  type="number" class="number_t_1" id="jog_joint_step_v" step="0.001" min="0.001" max="10000" value="0.001" >
+            </td>
+
+          </tr>
+      </tbody>
+</table>

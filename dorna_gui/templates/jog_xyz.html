@@ -1,0 +1,69 @@
+{% set cord, cord_cls = ["X", "Y", "Z", "A", "B"] ,  ["unit_length", "unit_length", "unit_length", "", ""]%}
+<table id="home_table" style="width: 100%">
+      <tbody>
+          <tr>
+            <td></td>
+            <td style="width: 24px"></td>
+            <td></td>
+            <td style="width: 24px">
+              <button class="btn_tab t_2 refresh_position" style="padding: 0px 0px; width: 24px; height: 24px" title="Refresh position"><i class="material-icons">navigation</i></button>                 
+            </td>
+            <td style="width: 65px;padding-left: var(--margin_b)" >
+              <button type="button" class="btn btn_t_2 jog_go" name = "line" >
+                Go
+              </button>
+            </td>
+          </tr>
+          <!--buttons-->
+          {% for i in range(5) %}
+          <tr>
+            <td style="width: 30px">
+              {{cord[i]}}
+                  {% if i in [4, 5] %}
+                    <span class="{{cord_cls[i]}}" style="vertical-align: super">
+                      &#7506
+                    </span>
+                  {% else %}
+                    <span class="{{cord_cls[i]}} small" style="vertical-align: super">
+                      &#7506
+                    </span>
+                  {% endif %}
+            </td>
+            <td>
+              <button type="button" class="jog_b button" name = "xyz{{ i }}_-1">
+                <!--<i class="fas fa-minus"></i>-->
+                <i class="material-icons">chevron_left</i>
+              </button>
+            </td>
+            <td>
+              {% if i < 3 %}
+              <input type="range" class="jog_r xyz_r xyz{{ i }}_v slider slider_2 cartesian" min="-200" max="200" name="xyz{{ i }}" style="margin: 11px 0px !important; z-index:10;" >
+              {% else %}
+                <input type="range" class="jog_r xyz_r xyz{{ i }}_v slider slider_2" min="-200" max="200" name="xyz{{ i }}" style="margin: 11px 0px !important; z-index:10;" >
+              {% endif %}
+            </td>
+            <td>
+              <button type="button" class="jog_b button" name = "xyz{{ i }}_+1">
+                <i class="material-icons">chevron_right</i>
+              </button>
+            </td>
+            <td style="padding-left: var(--margin_b)">
+              <input  type="number" class="xyz{{ i }}_v xyz_{{i}} number_t_1" step="0.001" >
+            </td>
+          </tr>
+          {% endfor %}
+          <!--buttons-->
+          <tr>
+            <td colspan="4">
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" id="jog_xyz_step_c" value="option1" style="margin-left: 0px" name="xyz">
+                <label class="custom-control-label" for="jog_xyz_step_c">Discrete jog mode</label>
+              </div>
+            </td>
+            <td style="padding-left: var(--margin_b)">
+              <input  type="number" class="number_t_1" id="jog_xyz_step_v" step="0.001" min="0.001" max="10000" value="0.001" >
+            </td>
+
+          </tr>
+      </tbody>
+</table>
