@@ -11,7 +11,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="dorna_gui",
-    version= Gui().version,
+    version= "2.1",
     author="Dorna Robotics",
     author_email="info@dorna.ai",
     description="Dorna Gui",
