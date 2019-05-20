@@ -7,9 +7,10 @@ from os import rename, remove
 import urllib.request
 
 # python script
-from importlib import reload
+from importlib import reload, util
 
-from . import python_script
+
+#from . import python_script
 
 import webbrowser
 
@@ -26,7 +27,7 @@ class Gui(object):
 	"""docstring for ClassName"""
 	def __init__(self):
 		super(Gui, self).__init__()
-		self.version = "2.1"
+		self.version = "2.2"
 		self._mn = "dorna_gui"
 			
 	def run(self, log=True, browser=True, debug=False, host="127.0.0.1" ,port=5000):	
@@ -95,7 +96,9 @@ class Gui(object):
 				text_file.write(data["text"])
 
 			# reload module
-			reload(python_script)
+			spec = util.spec_from_file_location("what.ever", resource_filename(self._mn, "python_script.py"))
+			python_script = util.module_from_spec(spec)
+			spec.loader.exec_module(python_script)
 
 			# run module
 			try:

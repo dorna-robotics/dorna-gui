@@ -1,0 +1,44 @@
+<div class="bar_head info_drag_bar">
+  <!--<i class="material-icons btn_tab t_2 drag_info">drag_indicator</i>-->
+  <span class="title">Scale</span>
+</div>
+<div class="content">
+  <!--scale-->
+  <table id ="speed_jog_scale" style="width: 100%; ">
+    <tbody>
+      <tr>
+        <td style="width: 50px">Speed</td>
+        <td>
+          <input id="speed_scale_s" type="range" class="slider bind_t_1 bind_s" min="1" max="100" name="#speed_scale_n" style="margin: 11px 0px !important; z-index:10;" value="50">
+        </td>
+
+        <td style="width: 50px; text-align: right">
+          <input  type="number" class="number_t_1 bind_t_1 bind_s" step="1" style="width: 40px" min="1" max="100" id="speed_scale_n" name="#speed_scale_s" value="50">
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 50px">Jerk</td>
+        <td>
+          <input id="jerk_scale_s" type="range" class="slider bind_t_1 bind_s" min="1" max="100" name="#jerk_scale_n" style="margin: 11px 0px !important; z-index:10;" value="50">
+        </td>
+
+        <td style="width: 50px; text-align: right">
+          <input  type="number" class="number_t_1 bind_t_1 bind_s" step="1" style="width: 40px" min="1" max="100" id="jerk_scale_n" name="#jerk_scale_s" value="50">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!--
+  <div id="command_div">
+    <textarea class="command_t" placeholder="Submit command..."></textarea>
+  </div>
+  <button type="button" class="btn btn_t_2" name = "command_b" >
+    Send
+  </button>
+  -->
+  <!--
+  <div id="command_div">
+    <textarea class="command_t" style=""></textarea>
+  </div>
+  -->
+</div>

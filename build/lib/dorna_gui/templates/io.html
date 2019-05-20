@@ -1,0 +1,169 @@
+<div class="sidepanel" id="io_panel">
+  <div class="bar_head">
+    <button class="btn_tab t_2 side_close"><i class="material-icons">close</i></button>
+    <span class="title">Digital inputs & outputs</span>
+  </div>
+  <div class="content">
+    <!--servo-->
+    <table id ="servo_table" style="width: 100%">
+      <tbody>
+        <tr>
+          <td style="width: 15%">Servo</td>
+
+          <td style="width: 70%"><input type="range" class="slider" id="servo" min="0" max="1000" value="100"></td>
+          <td style="width: 15%" align="center"><label for="servo" id="servo_n">100</label></td>
+
+
+
+
+        </tr>
+      </tbody>
+    </table>
+    <!--/servo-->
+    <div class="hr"></div>
+    <!--laser-->
+    <table id ="laser_table" style="width: 100%">
+      <tbody>
+        <tr>
+          <td style="width: 26%"></td>
+          <td style="width: 37%" align="center">Off / On</td>
+          <td style="width: 37%" align="center"></td>
+        </tr>
+        <tr>
+          <td>Laser</td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="laser">
+                <label for="laser"></label>
+              </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--/laser-->
+    <div class="hr"></div>
+    <!--input-->
+    <table id ="input_table" style="width: 100%">
+      <tbody>
+        <tr>
+          <td style="width: 26%"></td>
+          <td style="width: 37%" align="center">Off / On</td>
+          <td style="width: 37%" align="center">Active low / high</td>
+        </tr>
+        <tr>
+          <td>Input 1 (P1)</td>
+          <td id="in1" align="center"></td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="di1mo">
+                <label for="di1mo"></label>
+              </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Input 2 (P2)</td>
+          <td id="in2" align="center"></td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="di2mo">
+                <label for="di2mo"></label>
+              </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Input 3 (P3)</td>
+          <td id="in3" align="center"></td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="di3mo">
+                <label for="di3mo"></label>
+              </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Input 4 (P4)</td>
+          <td  id="in4" align="center"></td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="di4mo">
+                <label for="di4mo"></label>
+              </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--/input-->
+    <div class="hr"></div>
+    <!--output-->
+    <table id ="output_table" style="width: 100%">
+      <tbody>
+        <tr>
+          <td style="width: 26%"></td>
+          <td style="width: 37%" align="center">Off / On</td>
+          <td style="width: 37%" align="center">Active low / high</td>
+        </tr>
+        <tr>
+          <td>Output 1 (P5)</td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="out1">
+                <label for="out1"></label>
+              </span>
+          </td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="do1mo">
+                <label for="do1mo"></label>
+              </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Output 2 (P6)</td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="out2">
+                <label for="out2"></label>
+              </span>
+          </td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="do2mo">
+                <label for="do2mo"></label>
+              </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Output 3 (P7)</td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="out3">
+                <label for="out3"></label>
+              </span>
+          </td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="do3mo">
+                <label for="do3mo"></label>
+              </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Output 4 (P8)</td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="out4">
+                <label for="out4"></label>
+              </span>
+          </td>
+          <td align="center">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch io" id="do4mo">
+                <label for="do4mo"></label>
+              </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--/output-->
+  </div>
+</div>

@@ -1,0 +1,300 @@
+  <div class="sidepanel" id="connection_panel">
+    <div class="bar_head">
+      <button class="btn_tab t_2 side_close"><i class="material-icons">close</i></button>
+      <span class="title">Connection</span>
+    </div>
+    
+    <!--percentage-->
+    <div class="progress">
+      <div class="progress_width" id="connection_progress"></div>
+    </div>
+    <!--/percentage-->
+    <div class="ex4">
+    <!--content-->
+    <div class="content" style="border-bottom: 1px solid var(--border_color)">
+      <table id ="connection_t" style="width: 100%">
+        <tbody>
+          {% for label in ["Robot status", "State", "Device ID", "USB port"] %}
+          <tr>
+            <td style="width: 50%; min-width: 165px">{{label}}</td>
+            <td style="width: 50%; max_width: 165px"></td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td style="width: 50%">Config file</td>
+            <td style="width: 50%">
+              <input type="text" class="number_t_2 config_path_l" style="width: -webkit-fill-available;" disabled>
+            </td>
+          </tr> 
+          <tr>
+            <td style="width: 50%">Software version</td>
+            <td style="width: 50%">{{data['version']}}</td>
+          </tr>  
+          <tr>
+            <td style="width: 50%">Firmware version</td>
+            <td style="width: 50%"></td>
+          </tr>    
+          <tr>
+            <td style="width: 50%">Server status</td>
+            <td style="width: 50%" class="server_status"></td>
+          </tr>
+          <tr>
+            <td style="width: 50%">Internal server address</td>
+            <td style="width: 50%"><a href="http://localhost:{{data['port']}}">http://localhost:{{data['port']}}</a></td>
+          </tr>
+          <tr>
+            <td style="width: 50%">External server address</td>
+            <td style="width: 50%"><a href='http://{{data["host_ip"]}}:{{data["port"]}}'>http://{{data["host_ip"]}}:{{data["port"]}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <!--<div class="hr"></div>-->
+
+    </div>
+
+    <!--connect / disconnect-->
+    <div class="collapsible bar_head" style="height:28px">
+      <div class="col_t_1 t_0" style=";padding-top: 2px; padding-bottom: 2px; width: 24px">
+        <i class="material-icons t_1">arrow_right</i>
+        <i class="material-icons t_1" style="display:none">arrow_drop_down</i>
+      </div>
+      <div class="col_t_1" style=";padding-top: 7px; padding-bottom: 7px; width: 200px">
+        <span>Connect / disconnect</span>
+      </div>
+    </div>
+
+    <!--update software-->
+    <div class="collapsible_content">
+          <div class="content">
+            <!--connect-->
+            <table style="width: 100%" id="connct_div">
+              <tbody>
+                <tr>
+                  <td colspan="2" style=" vertical-align: top;">
+                    To establish a connection, select the robot USB port, the robot configuration file, and click Connect.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: bottom;">
+                    USB port
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="select port_l select_t_1" type="text" id="connection_port_l" style="width: 100%;">
+                      <option value="null" selected>Automatic</option>
+                    </select>
+                  </td>
+                  <td style="width: 1%">
+                    <button type="button" class="btn btn_t_1 port_refresh_b">Refresh</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: bottom;">
+                    Config file
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="select  select_t_1" type="text" id="connection_type_l" style="width:100%">
+                      <option value="2" selected>No change</option>
+                      <option value="0">New</option>
+                      <option value="1">Open (*.yaml, *.json)</option>
+                    </select>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr style="display: none" id="open_config">
+                  <td>
+                    <input type="text" class="number_t_2" style="width: -webkit-fill-available" placeholder="Config path: e.g., C:\config.yaml" id="connect_config_s">
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td tyle="" colspan="2">
+                    <button type="button" class="btn btn_t_1" id="connect_b">
+                      Connect
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--/connect-->
+
+            <!--disconnect-->
+            <table id="disconnct_div" style="width: 100%;display: none;">
+              <tbody>
+                <tr>
+                  <td colspan="2" style=" vertical-align: top;">
+                    To terminate the connection, click Disconnect.
+                  </td>
+                </tr>
+                <tr>
+                  <td tyle="" colspan="2">
+                    <button type="button" class="btn btn_t_1" id="disconnect_b">Disconnect</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--/disconnect-->
+          </div>
+    </div>
+      
+
+
+    <!--update software
+    <div class="collapsible bar_head" style="height:28px">
+      <div class="col_t_1 t_0" style=";padding-top: 2px; padding-bottom: 2px; width: 24px">
+        <i class="material-icons t_1">arrow_right</i>
+        <i class="material-icons t_1" style="display:none">arrow_drop_down</i>
+      </div>
+      <div class="col_t_1" style=";padding-top: 7px; padding-bottom: 7px; width: 200px">
+        <span>Update software</span>
+      </div>
+    </div>
+    -->
+    <!--update software
+    <div class="collapsible_content">
+          <div class="content">
+            <table style="width: 100%">
+              <tbody>
+                <tr>
+                  <td colspan="3" style=" vertical-align: top;">
+                    To update the software, first make sure that the host machine is connected to the internet.
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 100px">
+                    <button type="button" class="btn btn-primary btn-sm small_b" id="check_for_update_b" style="width: 170px">
+                      Check for update...
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+    -->
+
+    <div class="collapsible bar_head" style="height:28px">
+      <div class="col_t_1 t_0" style=";padding-top: 2px; padding-bottom: 2px; width: 24px">
+        <i class="material-icons t_1">arrow_right</i>
+        <i class="material-icons t_1" style="display:none">arrow_drop_down</i>
+      </div>
+      <div class="col_t_1" style=";padding-top: 7px; padding-bottom: 7px; width: 200px">
+        <span>Update firmware</span>
+      </div>
+    </div>
+
+    <!--update firmware-->
+    <div class="collapsible_content">
+          <div class="content">
+            <table style="width: 100%">
+              <tbody>
+                <tr>
+                  <td colspan="3" style=" vertical-align: top;">
+                    To update the firmware, select the firmware file, the robot USB port, and click Update.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="vertical-align: bottom;">
+                    USB port
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <select class="select port_l select_t_1" type="text" id="firmware_port_l" style="width: 100%;">
+                      <option value="null" selected>Automatic</option>
+                    </select>
+                  </td>
+                  <td style="width: 80px">
+                    <button type="button" class="btn btn_t_1 port_refresh_b">Refresh</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align: bottom;">
+                    Firmware file
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <select class="select  select_t_1" type="text" id="firmware_type_l" style="width:100%">
+                      <option value="0" selected>Default</option>
+                      <option value="1">Open (*.bin)</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr style="display: none" id="open_firmware">
+                  <td colspan="2">
+                    <input type="text" class="number_t_2" style="width: -webkit-fill-available" placeholder="Config path: e.g., C:\firmware.bin" id="firmware_s">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 100px">
+                    <button type="button" class="btn btn-primary btn-sm small_b" id="update_b">
+                      Update
+                    </button>
+                  </td>
+                  <td colspan="2"></td>
+                </tr>
+                <!--
+                <tr>
+                  <td colspan="3" id="firmware_m"></td>
+                </tr>
+                -->                
+              </tbody>
+            </table>
+            <!--/connect-->
+          </div>
+    </div>
+
+    <!--reset device-->
+    <div class="collapsible bar_head" style="height:28px">
+      <div class="col_t_1 t_0" style=";padding-top: 2px; padding-bottom: 2px; width: 24px">
+        <i class="material-icons t_1">arrow_right</i>
+        <i class="material-icons t_1" style="display:none">arrow_drop_down</i>
+      </div>
+      <div class="col_t_1" style=";padding-top: 7px; padding-bottom: 7px; width: 200px">
+        <span>Reset device</span>
+      </div>
+    </div>
+
+    <!--reset device-->
+    <div class="collapsible_content">
+          <div class="content">
+            <table style="width: 100%">
+              <tbody>
+                <tr>
+                  <td colspan="3" style=" vertical-align: top;">
+                    To reset the device (controller board) click Reset.
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="vertical-align: bottom;">
+                    USB port
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <select class="select port_l select_t_1" type="text" id="reset_port_l" style="width: 100%;">
+                      <option value="null" selected>Automatic</option>
+                    </select>
+                  </td>
+                  <td style="width: 80px">
+                    <button type="button" class="btn btn_t_1 port_refresh_b">Refresh</button>
+                  </td>
+                </tr>                
+                <tr>
+                  <td style="width: 100px">
+                    <button type="button" class="btn btn-primary btn-sm small_b" id="reset_board_b">
+                      Reset
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>    
+  </div>
+  </div>

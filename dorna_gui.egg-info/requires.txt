@@ -1,0 +1,6 @@
+setuptools
+eventlet
+dorna
+flask-socketio
+flask
+PyYAML

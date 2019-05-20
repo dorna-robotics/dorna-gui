@@ -2,9 +2,10 @@
 $( '#save_config_b' ).on( 'click', function( e ) {
 	e.preventDefault()
 
-	let save_path = $(".config_path_l").prop("value")
+	let save_path = $(".config_path_s").prop("value")
 	save_path = save_path.replace(/\\/g, '/')
 
+	
 	socket.emit("method",{
 		method: "save_config",
 		prm: {
