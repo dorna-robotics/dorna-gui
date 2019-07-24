@@ -3,13 +3,7 @@ Dorna gui is a free and open-source software with graphical user interface, used
 Dorna gui runs [Dorna API][dorna_github] and [Flask server][flask] in the background, and displays the data in a web browser. The best result is achievable via the [Google Chrome][chrome] web browser.
 
 ## Installation
-The program is compatible with Python 3.7+, and there are two main ways to install the program.  
-**PyPI**  
-To install the package from the PyPI server, simply use the `pip` command:
-```bash
-pip install -U dorna_gui
-```
-
+Notice that the program is compatible with Python 3.7+.
 **GitHub**  
 First, use `git clone` to download the repository:  
 ```bash
