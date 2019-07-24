@@ -4,6 +4,7 @@ Dorna gui runs [Dorna API][dorna_github] and [Flask server][flask] in the backgr
 
 ## Installation
 Notice that the program is compatible with Python 3.7+.
+
 **GitHub**  
 First, use `git clone` to download the repository:  
 ```bash
